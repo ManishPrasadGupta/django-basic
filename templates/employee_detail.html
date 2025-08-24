@@ -14,31 +14,25 @@
 </head>
 <body>
     <div class="container pt-5">
-    <h2>Employees List</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Designation</th>
-                <th>Phone Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for employee in employees %}
-            <tr>
-                <th>{{forloop.counter }}</th>
-                <td><a href="{% url 'employee_detail' employee.id %}">{{ employee.first_name }} {{ employee.last_name }}</a></td>
-                <td>{{ employee.designation }}</td>
-                <td>{{ employee.phone_number }}</td>
-            </tr>
-            {% endfor %}
-            
-        </tbody>
-    </table>
-    <ul>
-        
-    </ul>
+        <div class="card mx-auto" style="width: 18rem;">
+            <img class="card-img-top" src="{{ employee.photo.url }}" alt="employee image">
+            <div class="card-body">
+                <p class="card-text">
+                    {{ employee.first_name }} {{ employee.last_name }}
+                </p>
+                <p class="card-text">
+                    {{ employee.email_address }}
+                </p>
+                <p class="card-text">
+                    {{ employee.designation }}
+                </p>
+                <p class="card-text">
+                    {{ employee.phone_number }}
+                </p>
+            </div>
+            <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+        </div>
+
     </div>
 
  
